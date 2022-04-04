@@ -956,13 +956,6 @@
   };
 
   self.script = function () {
-    $(".css-1tlolav-MuiBox").click(function () {
-      $(".css-5qsdrw").css("background-color", "");
-      setTimeout(() => {
-        location.reload();
-      }, 2000);
-    });
-
     full_text = $(".css-1abhqu6-MuiBox").text();
     console.log(full_text);
 
@@ -983,6 +976,10 @@
       if (filtered_text_parts.indexOf(text.toLowerCase()) != -1)
         $(this).css("background-color", "rgb(217, 219, 255)");
     });
+
+      setTimeout(() => {
+          self.script();
+      }, 200);
   };
 
   // Initialize the script
