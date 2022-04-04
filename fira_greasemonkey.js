@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       FIRA Highlight2
 // @namespace  manuel.esberger
-// @version    1.0
+// @version    1.1
 // @description  abc
 // @match      https://ir-group.ec.tuwien.ac.at/fira/annotation/*
 // @author  2022+, Manuel Esberger, THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
@@ -10,6 +10,16 @@
 
 // @require 	https://gist.githubusercontent.com/pcheek/55e9ef0ade2dc493d86a017c3f17b33e/raw/40b615236c757bfc9b93b2c85ad9bd8eb66103f3/stop_words.js
 // @require    http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
+
+/*
+ Changelog:
+ v1.1
+ + QickFix by https://github.com/bernikr: 
+      restart the script highlighting every 200ms instead of reloading after a qlik on the tagging-buttons
+
+ v1.0 (2012)
+ Initial release
+ */
 
 // Add jQuery
 (function FIRAHighlight2Class() {
@@ -977,9 +987,9 @@
         $(this).css("background-color", "rgb(217, 219, 255)");
     });
 
-      setTimeout(() => {
-          self.script();
-      }, 200);
+    setTimeout(() => {
+      self.script();
+    }, 200);
   };
 
   // Initialize the script
